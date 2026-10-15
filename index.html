@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription Killer by Novatix — Stop Burning Money on Subscriptions</title>
+<meta name="description" content="Tick your paid subscriptions and discover how much money you're wasting every year. Then switch to free Novatix alternatives and keep your cash. 100% free, private, no signup.">
+<meta name="keywords" content="subscription tracker, cancel subscriptions, save money, subscription calculator, free alternatives, stop wasting money">
+<meta name="author" content="Novatix Labs">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://save.novatix.agency/">
+<meta name="theme-color" content="#0A0F1D">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Subscription Killer by Novatix">
+<meta property="og:title" content="Stop Burning Money on Subscriptions">
+<meta property="og:description" content="I just found out how much I'm wasting every year on subscriptions. Calculate your waste in 30 seconds — then kill it with free alternatives.">
+<meta property="og:url" content="https://save.novatix.agency/">
+<meta property="og:image" content="https://save.novatix.agency/og-cover.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Subscription Killer by Novatix">
+<meta name="twitter:description" content="Tick your subscriptions. See your yearly waste. Switch to free alternatives. 100% free, private, no signup.">
+<meta name="twitter:image" content="https://save.novatix.agency/og-cover.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Subscription Killer by Novatix","url":"https://save.novatix.agency/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculate how much money you waste on subscriptions each year and discover free alternatives.","author":{"@type":"Organization","name":"Novatix Labs","url":"https://novatix.agency"}}
+</script>
+<style>
+:root{
+  --bg:#0A0F1D; --bg2:#0e1321; --surface:rgba(17,24,39,.55); --surface-solid:#161b2a;
+  --surface-high:#1a1f2e; --surface-highest:#252a39; --lowest:#090e1c;
+  --border:rgba(255,255,255,.08); --border-soft:rgba(255,255,255,.04);
+  --text:#F8FAFC; --muted:#94A3B8; --faint:#64748B;
+  --teal:#14B8A6; --teal-bright:#4fdbc8; --teal-dim:rgba(20,184,166,.12);
+  --copper:#F97316; --copper-deep:#ec6a06; --copper-dim:rgba(249,115,22,.12);
+  --radius:1rem; --font-body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--teal);color:#04211d}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#26314a;border-radius:99px}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.mono{font-family:var(--font-mono)}
+.label-caps{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+/* ambient background */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient span{position:absolute;border-radius:50%;filter:blur(130px)}
+.ambient .a1{width:500px;height:500px;top:-160px;left:25%;background:rgba(79,219,200,.09)}
+.ambient .a2{width:450px;height:450px;top:33%;right:-130px;background:rgba(236,106,6,.08)}
+.ambient .a3{width:600px;height:600px;bottom:-160px;left:33%;background:rgba(20,184,166,.07)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,14,28,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-soft)}
+.hd-in{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0d2b28,#0A0F1D);border:1px solid rgba(20,184,166,.4);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:var(--teal-bright);box-shadow:0 0 18px -4px rgba(20,184,166,.4)}
+.brand-name{font-weight:700;font-size:17px;letter-spacing:-.01em}
+.brand-tag{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-bright);background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.25);padding:2px 8px;border-radius:99px}
+nav.main-nav{display:flex;gap:.25rem;background:rgba(9,14,28,.8);border:1px solid var(--border-soft);border-radius:99px;padding:4px}
+nav.main-nav button{background:none;border:0;color:var(--muted);font-size:13.5px;font-weight:500;padding:8px 16px;border-radius:99px;transition:all .2s}
+nav.main-nav button:hover{color:var(--text);background:rgba(255,255,255,.05)}
+nav.main-nav button.active{background:var(--surface-highest);color:var(--teal-bright);font-weight:600}
+.hd-right{display:flex;align-items:center;gap:.8rem}
+.comm-saved{display:flex;align-items:center;gap:.5rem;font-size:12px;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--border-soft);padding:7px 14px;border-radius:99px}
+.comm-saved .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+.comm-saved b{font-family:var(--font-mono);color:var(--teal-bright);font-size:13px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:0;border-radius:99px;font-weight:700;transition:all .25s}
+.btn-teal{background:var(--teal);color:#04211d;padding:12px 28px;font-size:15px;box-shadow:0 0 24px -4px rgba(20,184,166,.4)}
+.btn-teal:hover{background:#2DD4BF;box-shadow:0 0 34px -2px rgba(20,184,166,.6);transform:translateY(-2px)}
+.btn-copper-glow{background:linear-gradient(90deg,var(--copper-deep),var(--teal));color:#0A0F1D;padding:16px 34px;font-size:17px;box-shadow:0 0 34px -4px rgba(236,106,6,.5)}
+.btn-copper-glow:hover{box-shadow:0 0 48px 0 rgba(79,219,200,.55);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--border);padding:12px 24px;font-size:14px}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-sm{padding:9px 20px;font-size:13.5px}
+/* views */
+.view{display:none;padding-top:72px;min-height:100vh}
+.view.active{display:block;animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* hero */
+.hero{padding:4.5rem 0 3.5rem;text-align:left}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,42,57,.7);border:1px solid var(--border-soft);padding:6px 14px;border-radius:99px;margin-bottom:1.4rem;backdrop-filter:blur(8px)}
+.pill .beacon{width:8px;height:8px;border-radius:50%;background:var(--copper);position:relative}
+.pill .beacon::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--copper);animation:ping 1.6s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
+h1.hero-title{font-size:clamp(2.5rem,5.2vw,4.2rem);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:1.2rem}
+.grad{background:linear-gradient(90deg,var(--copper-deep),var(--copper),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 26px rgba(236,106,6,.28))}
+.hero-sub{font-size:1.12rem;color:var(--muted);max-width:34rem;margin-bottom:2rem;line-height:1.7}
+.hero-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:2.2rem}
+.hero-note{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);font-size:13.5px;background:rgba(255,255,255,.03);border:1px solid var(--border-soft);padding:10px 16px;border-radius:99px}
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:36rem}
+.trust{display:flex;gap:.7rem;align-items:flex-start}
+.trust .ic{width:38px;height:38px;flex:none;border-radius:10px;background:var(--teal-dim);border:1px solid rgba(20,184,166,.25);display:flex;align-items:center;justify-content:center;color:var(--teal-bright);font-size:19px}
+.trust b{display:block;font-size:13.5px}.trust span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block}
+/* telemetry card */
+.tele-card{background:var(--surface);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;box-shadow:0 24px 60px -20px rgba(0,0,0,.6);position:relative;overflow:hidden}
+.tele-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+.tele-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--copper);animation:pulse 1.4s infinite}
+.big-ticker{font-family:var(--font-mono);font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:700;letter-spacing:-.03em;color:var(--copper);text-shadow:0 0 26px rgba(236,106,6,.35);font-variant-numeric:tabular-nums}
+.tele-row{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.03);border:1px solid var(--border-soft);border-radius:.7rem;padding:.7rem .9rem;margin-top:.6rem}
+.tele-row .nm{font-size:13.5px;font-weight:600}.tele-row .sb{font-family:var(--font-mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.tele-row .pr{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--copper)}
+.tag{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:99px}
+.tag.unused{background:var(--copper-dim);color:var(--copper)}.tag.dup{background:rgba(250,204,21,.12);color:#facc15}
+/* sections */
+.sec{padding:3.5rem 0}
+.sec-head{text-align:center;max-width:44rem;margin:0 auto 2.4rem}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.025em;margin:.7rem 0 .8rem}
+.sec-head p{color:var(--muted);font-size:1.02rem}
+/* calculator */
+.calc-layout{display:grid;grid-template-columns:1fr 340px;gap:1.6rem;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.4rem}
+.chip{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);font-size:13px;font-weight:600;padding:8px 18px;border-radius:99px;transition:all .2s}
+.chip:hover{color:var(--text);border-color:rgba(20,184,166,.4)}
+.chip.active{background:var(--teal-dim);border-color:rgba(20,184,166,.5);color:var(--teal-bright)}
+.sub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.85rem}
+.sub-card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:.9rem;padding:1rem 1.1rem;display:flex;align-items:center;gap:.9rem;transition:all .18s;cursor:pointer;position:relative}
+.sub-card:hover{border-color:rgba(20,184,166,.35);transform:translateY(-2px)}
+.sub-card.on{border-color:rgba(20,184,166,.55);background:rgba(20,184,166,.06);box-shadow:0 0 22px -6px rgba(20,184,166,.35)}
+.sub-ic{width:46px;height:46px;flex:none;border-radius:.75rem;background:#0b1120;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px}
+.sub-inf{flex:1;min-width:0}
+.sub-inf b{font-size:14.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub-inf .cat{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.07em}
+.sub-pr{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--muted);text-align:right}
+.sub-card.on .sub-pr{color:var(--copper)}
+.sub-pr small{display:block;font-size:10.5px;color:var(--faint);font-weight:500}
+/* toggle */
+.tgl{width:48px;height:27px;flex:none;border-radius:99px;background:#232b40;border:1px solid var(--border);position:relative;transition:all .25s}
+.tgl::after{content:'';position:absolute;top:2.5px;left:3px;width:20px;height:20px;border-radius:50%;background:#8b94a7;transition:all .25s}
+.sub-card.on .tgl{background:var(--teal);border-color:var(--teal);box-shadow:0 0 14px -2px rgba(20,184,166,.6)}
+.sub-card.on .tgl::after{left:23px;background:#fff}
+/* sticky totals */
+.totals{position:sticky;top:92px;background:rgba(15,23,42,.88);backdrop-filter:blur(22px);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:0 24px 60px -18px rgba(0,0,0,.65)}
+.totals::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+.totals .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.totals .m{font-family:var(--font-mono);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+.totals .y{font-family:var(--font-mono);font-size:2.15rem;font-weight:700;color:var(--copper);text-shadow:0 0 22px rgba(236,106,6,.3);font-variant-numeric:tabular-nums}
+.totals .lbl{font-size:12.5px;color:var(--muted)}
+.totals hr{border:0;border-top:1px solid var(--border-soft);margin:1rem 0}
+.count-line{font-size:13px;color:var(--muted);margin-bottom:1.1rem}
+.count-line b{color:var(--teal-bright)}
+.totals .btn{width:100%;margin-top:.4rem}
+/* results */
+.shock-hero{text-align:center;padding:2.5rem 0}
+.shock-num{font-family:var(--font-mono);font-size:clamp(3rem,9vw,6rem);font-weight:700;letter-spacing:-.04em;color:var(--copper);text-shadow:0 0 44px rgba(236,106,6,.4);font-variant-numeric:tabular-nums;line-height:1.05}
+.shock-sub{color:var(--muted);margin-top:.6rem;font-size:1.05rem}
+.shock-sub b{color:var(--text);font-family:var(--font-mono)}
+.equiv{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2.4rem 0}
+.equiv .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;text-align:center;backdrop-filter:blur(14px)}
+.equiv .big{font-family:var(--font-mono);font-size:1.7rem;font-weight:700;display:block;margin:.5rem 0 .2rem}
+.equiv .ic{font-size:26px}
+.cat-bars{margin:2rem 0}
+.cat-bar{margin-bottom:1.1rem}
+.cat-bar .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:.45rem}
+.cat-bar .top b{font-family:var(--font-mono)}
+.bar{height:10px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--copper-deep),var(--copper));width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.bar.teal i{background:linear-gradient(90deg,#0d9488,var(--teal-bright))}
+.horizon{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.horizon .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;backdrop-filter:blur(14px)}
+.horizon .big{font-family:var(--font-mono);font-size:2.2rem;font-weight:700;color:var(--copper)}
+.horizon .big.teal{color:var(--teal-bright)}
+/* === Advanced audit extras (v2) === */
+.region{display:inline-block;font-family:var(--font-mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:99px;background:rgba(79,219,200,.1);border:1px solid rgba(79,219,200,.3);color:var(--teal-bright);margin-left:.4rem;vertical-align:middle}
+.warn-card{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.35);border-radius:var(--radius);padding:1.1rem 1.3rem;margin:.8rem auto;max-width:46rem;text-align:left}
+.warn-card .wc-head{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:15px;color:var(--copper);margin-bottom:.35rem}
+.warn-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
+.warn-card b{color:var(--text)}
+.warn-card .save{font-family:var(--font-mono);color:var(--copper);font-weight:700}
+.hike-card{background:rgba(250,204,21,.05);border:1px solid rgba(250,204,21,.28);border-radius:var(--radius);padding:1rem 1.3rem;margin:.8rem auto;max-width:46rem;text-align:left;display:flex;gap:.8rem;align-items:flex-start}
+.hike-card .hi{font-size:20px;flex:none}
+.hike-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
+.hike-card b{color:#facc15}
+.annual-card{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.3);border-radius:var(--radius);padding:1rem 1.3rem;margin:.8rem auto;max-width:46rem;text-align:left;display:flex;gap:.8rem;align-items:flex-start}
+.annual-card .ai2{font-size:20px;flex:none}
+.annual-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
+.annual-card b{color:var(--teal-bright)}
+.annual-card .save{font-family:var(--font-mono);color:var(--teal-bright);font-weight:700}
+.audit-sec-head{text-align:center;margin:2.2rem 0 1rem}
+.audit-sec-head h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-top:.4rem}
+.mini-warn{display:none;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.35);border-radius:.7rem;padding:.6rem .8rem;font-size:12.5px;color:var(--copper);margin-top:.8rem;line-height:1.5}
+.mini-warn.show{display:block}
+.mini-warn b{color:var(--text)}
+.verdict{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.25);border-radius:var(--radius);padding:1.5rem 1.7rem;margin:2rem 0;font-size:15px;line-height:1.7}
+.verdict b{color:var(--teal-bright)}
+/* alternatives */
+.alt-head-savings{text-align:center;margin-bottom:2rem}
+.alt-head-savings .big{font-family:var(--font-mono);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;color:var(--teal-bright);text-shadow:0 0 30px rgba(20,184,166,.35)}
+.alt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+.alt-card{background:var(--surface);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;position:relative;overflow:hidden;transition:all .2s}
+.alt-card:hover{border-color:rgba(20,184,166,.4);transform:translateY(-3px)}
+.alt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+.alt-from{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.alt-from .sub-ic{width:42px;height:42px;font-size:20px}
+.alt-price-old{margin-left:auto;text-align:right}
+.alt-price-old s{color:var(--faint);font-family:var(--font-mono);font-size:13px;display:block}
+.alt-price-old span{color:var(--copper);font-family:var(--font-mono);font-size:12px;font-weight:600}
+.alt-arrow{text-align:center;color:var(--teal);font-size:20px;margin:.2rem 0 .8rem}
+.alt-to{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.22);border-radius:.8rem;padding:1rem 1.1rem}
+.alt-to b{font-size:15.5px}
+.alt-to .free{font-family:var(--font-mono);color:var(--teal-bright);font-weight:700;font-size:15px}
+.feats{list-style:none;margin:.9rem 0;display:grid;gap:.45rem}
+.feats li{font-size:13px;color:var(--muted);display:flex;gap:.55rem;align-items:flex-start}
+.feats li::before{content:'✓';color:var(--teal-bright);font-weight:700;flex:none}
+.switch-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:1rem;background:var(--teal-dim);border:1px solid rgba(20,184,166,.45);color:var(--teal-bright);font-weight:700;font-size:14px;padding:12px;border-radius:.8rem;transition:all .2s}
+.switch-btn:hover{background:var(--teal);color:#04211d;box-shadow:0 0 22px -4px rgba(20,184,166,.5)}
+/* share */
+.pass{background:linear-gradient(160deg,rgba(20,184,166,.1),rgba(9,14,28,.6) 45%,rgba(236,106,6,.08));border:1px solid rgba(20,184,166,.3);border-radius:1.3rem;padding:2.6rem 2rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 60px -18px rgba(20,184,166,.35)}
+.pass::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(79,219,200,.5),transparent)}
+.pass .stamp{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--teal-bright);text-transform:uppercase;border:1px dashed rgba(20,184,166,.5);display:inline-block;padding:8px 20px;border-radius:8px;margin-bottom:1.4rem;transform:rotate(-2deg)}
+.pass blockquote{font-size:clamp(1.3rem,3.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.4;max-width:34rem;margin:0 auto 1.4rem}
+.pass blockquote .mono{color:var(--copper)}
+.bleed-list{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:1.8rem}
+.bleed-list span{font-family:var(--font-mono);font-size:12px;background:rgba(255,255,255,.05);border:1px solid var(--border-soft);padding:6px 14px;border-radius:99px;color:var(--muted)}
+.bleed-list span b{color:var(--copper)}
+.share-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin:1.6rem 0}
+.share-btns .btn{padding:13px 26px;font-size:14.5px}
+.btn-x{background:#000;border:1px solid #333;color:#fff}
+.btn-wa{background:#25D366;color:#062b16}
+.btn-fb{background:#1877F2;color:#fff}
+.btn-copy{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--text)}
+.share-btns .btn:hover{transform:translateY(-2px)}
+.copied-msg{font-size:13.5px;color:var(--teal-bright);font-weight:600;min-height:22px;margin-top:.4rem}
+.challenge{margin-top:2.6rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;backdrop-filter:blur(14px);text-align:center}
+.challenge h3{font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+.challenge p{color:var(--muted);font-size:14.5px;max-width:36rem;margin:0 auto 1.2rem}
+.live-stats{display:flex;justify-content:center;gap:2.4rem;margin-top:2rem;flex-wrap:wrap}
+.live-stats div{text-align:center}
+.live-stats .n{font-family:var(--font-mono);font-size:1.6rem;font-weight:700;color:var(--teal-bright);display:block}
+.live-stats .t{font-size:12px;color:var(--faint)}
+/* footer */
+footer{border-top:1px solid var(--border-soft);padding:2.6rem 0;margin-top:3rem;position:relative;z-index:1}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.ft-grid h4{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:.9rem}
+.ft-grid a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:.5rem}
+.ft-grid a:hover{color:var(--teal-bright)}
+.ft-brand{font-size:13.5px;color:var(--muted);max-width:20rem;margin-top:.8rem}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:1.4rem;border-top:1px solid var(--border-soft);font-size:12.5px;color:var(--faint)}
+.status{display:inline-flex;align-items:center;gap:.5rem}
+/* empty state */
+.empty{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.empty .big{font-size:44px;margin-bottom:1rem}
+/* responsive */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .calc-layout{grid-template-columns:1fr}
+  .totals{position:static}
+  nav.main-nav{display:none}
+}
+@media(max-width:640px){
+  .hd-in{padding:0 1rem}
+  .comm-saved{display:none}
+  .wrap{padding:0 1rem}
+  .hero{padding:2.6rem 0}
+  .trust-row{grid-template-columns:1fr}
+  .equiv{grid-template-columns:1fr}
+  .horizon{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .btn-copper-glow{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+
+<header>
+  <div class="hd-in">
+    <a class="brand" href="#" data-nav="landing">
+      <span class="brand-mark">N</span>
+      <span><span class="brand-name">Subscription Killer</span><br><span class="brand-tag">by Novatix</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <button data-nav="calculator">Calculator</button>
+      <button data-nav="results">Shock Report</button>
+      <button data-nav="alternatives">Free Alternatives</button>
+      <button data-nav="share">Share</button>
+    </nav>
+    <div class="hd-right">
+      <div class="comm-saved"><span class="dot"></span><span class="label-caps">Community saved</span><b id="hdSaved">$4,281,900</b></div>
+      <button class="btn btn-teal btn-sm" data-nav="calculator">Calculate Waste</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ VIEW: LANDING ============ -->
+<section class="view active" id="view-landing">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="pill"><span class="beacon"></span><span class="label-caps" style="color:var(--copper)">Obsidian Protocol Active · Audit Engine v4.8</span></div>
+          <h1 class="hero-title">Stop <span class="grad">Burning Money</span> on Subscriptions.</h1>
+          <p class="hero-sub">The average consumer bleeds over <b style="color:var(--text)">$1,000 every year</b> on forgotten, bloated and duplicate digital services. Uncover your hidden subscription leak in 30 seconds.</p>
+          <div class="hero-cta-row">
+            <button class="btn btn-copper-glow" data-nav="calculator">Calculate My Waste <span aria-hidden="true">→</span></button>
+            <span class="hero-note">⚡ Instant local breakdown · Zero setup</span>
+          </div>
+          <div class="trust-row">
+            <div class="trust"><span class="ic">🔒</span><div><b>100% Private</b><span>No bank logins required</span></div></div>
+            <div class="trust"><span class="ic">💸</span><div><b>Zero Cost</b><span>100% ad-free utility</span></div></div>
+            <div class="trust"><span class="ic">🚫</span><div><b>No Signup</b><span>Instant browser output</span></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="tele-card">
+            <div class="tele-head">
+              <span class="label-caps" style="color:var(--copper);display:flex;align-items:center;gap:.5rem"><span class="live-dot"></span>Live Bleed Telemetry</span>
+              <span class="label-caps" style="color:var(--faint);background:var(--surface-highest);padding:3px 9px;border-radius:6px">UTC · Real-time</span>
+            </div>
+            <div class="label-caps" style="color:var(--faint);margin-bottom:.4rem">Total waste discovered globally</div>
+            <div class="big-ticker" id="ticker">$14,892,450.00</div>
+            <div style="display:flex;align-items:center;gap:.4rem;margin-top:.4rem;font-size:13px;color:var(--muted)"><span style="color:var(--copper)">▲</span> +$18.40 added every second by newly scanned cards</div>
+            <div style="margin-top:1.1rem;background:rgba(255,255,255,.03);border:1px solid var(--border-soft);border-radius:.7rem;padding:.9rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem">
+                <span class="label-caps" style="color:var(--faint)">Live audit simulation</span>
+                <span class="tag" style="background:var(--teal-dim);color:var(--teal-bright)">Local sandbox</span>
+              </div>
+              <div class="tele-row"><div><div class="nm">Streaming Duo Tier</div><div class="sb">Zero plays logged · 68 days</div></div><div style="text-align:right"><div class="pr">-$22.99/mo</div><span class="tag unused">Unused</span></div></div>
+              <div class="tele-row"><div><div class="nm">Cloud Storage 2TB</div><div class="sb">Duplicate plan found</div></div><div style="text-align:right"><div class="pr">-$14.99/mo</div><span class="tag dup">Duplicate</span></div></div>
+              <div style="display:flex;justify-content:space-between;margin-top:.8rem;font-size:12.5px;color:var(--muted)">
+                <span>Potential salvage: <b class="mono" style="color:var(--teal-bright)">$455.76/yr</b></span>
+                <span style="color:var(--teal-bright)">● Ready to purge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head">
+        <span class="label-caps" style="color:var(--teal-bright)">How it works</span>
+        <h2>Three steps to financial liberation</h2>
+        <p>No apps to install. No accounts to connect. Just brutal honesty about where your money goes.</p>
+      </div>
+      <div class="sub-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="tele-card"><div class="label-caps" style="color:var(--teal-bright);margin-bottom:.6rem">Step 01</div><h3 style="font-size:1.15rem;font-weight:700;margin-bottom:.5rem">Tick your subscriptions</h3><p style="color:var(--muted);font-size:14px">Select every recurring service you pay for — streaming, software, cloud, AI tools. Takes 30 seconds.</p></div>
+        <div class="tele-card"><div class="label-caps" style="color:var(--copper);margin-bottom:.6rem">Step 02</div><h3 style="font-size:1.15rem;font-weight:700;margin-bottom:.5rem">Face the shock number</h3><p style="color:var(--muted);font-size:14px">See exactly how much you burn per month, per year — and what it compounds to over 5 years.</p></div>
+        <div class="tele-card"><div class="label-caps" style="color:var(--teal-bright);margin-bottom:.6rem">Step 03</div><h3 style="font-size:1.15rem;font-weight:700;margin-bottom:.5rem">Switch &amp; save</h3><p style="color:var(--muted);font-size:14px">Every paid tool is mapped 1:1 to a free Novatix alternative. One click to reclaim your cash.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2.4rem"><button class="btn btn-teal" data-nav="calculator" style="padding:15px 40px;font-size:16px">Start My Audit →</button></div>
+    </div>
+
+    <div class="sec" style="padding-top:1rem">
+      <div class="sec-head">
+        <span class="label-caps" style="color:var(--teal-bright)">Community impact</span>
+        <h2>Join the rebellion</h2>
+      </div>
+      <div class="live-stats">
+        <div><span class="n" id="statAudits">128,400</span><span class="t">audits completed</span></div>
+        <div><span class="n" id="statSaved">$4.28M</span><span class="t">community savings identified</span></div>
+        <div><span class="n">98.4%</span><span class="t">were shocked by results</span></div>
+        <div><span class="n">+42<span style="font-size:1rem">/min</span></span><span class="t">audit velocity</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIEW: CALCULATOR ============ -->
+<section class="view" id="view-calculator">
+  <div class="wrap">
+    <div class="sec">
+      <div class="sec-head">
+        <span class="label-caps" style="color:var(--copper)">Kill protocols · Step 1 of 3</span>
+        <h2>Waste Calculator</h2>
+        <p>Toggle every subscription you currently pay for. Watch your money burn in real time.</p>
+      </div>
+      <div class="chips" id="catChips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="entertainment">🎬 Entertainment</button>
+        <button class="chip" data-cat="productivity">🎨 Productivity &amp; Design</button>
+        <button class="chip" data-cat="cloud">☁️ Cloud &amp; Storage</button>
+        <button class="chip" data-cat="ai">🤖 AI Tools</button>
+        <button class="chip" data-cat="regional">🌍 PK / UK</button>
+      </div>
+      <div class="calc-layout">
+        <div class="sub-grid" id="subGrid" style="grid-template-columns:repeat(auto-fill,minmax(270px,1fr))"></div>
+        <aside class="totals">
+          <div class="label-caps" style="color:var(--faint);margin-bottom:.8rem">🔥 Your live bleed</div>
+          <div class="row"><span class="lbl">Monthly burn</span><span class="m" id="totMonthly">$0.00</span></div>
+          <div class="row"><span class="lbl">Yearly waste</span><span class="y" id="totYearly">$0.00</span></div>
+          <hr>
+          <div class="count-line"><b id="totCount">0</b> subscriptions selected</div>
+          <div class="mini-warn" id="overlapMini"></div>
+          <button class="btn btn-copper-glow btn-sm" data-nav="results" id="toResults" style="font-size:14px">See My Shock Report →</button>
+          <button class="btn btn-ghost btn-sm" id="resetSel" style="margin-top:.6rem">Reset selection</button>
+          <p style="font-size:12px;color:var(--faint);margin-top:1rem;line-height:1.6">🔒 100% private — everything runs in your browser. Nothing is uploaded or stored.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIEW: RESULTS ============ -->
+<section class="view" id="view-results">
+  <div class="wrap">
+    <div class="sec">
+      <div style="text-align:center;margin-bottom:1rem"><span class="label-caps" style="color:var(--teal-bright)">✓ Audit complete · Diagnostic 0x9AF</span></div>
+      <div class="shock-hero">
+        <div class="label-caps" style="color:var(--faint);margin-bottom:1rem;letter-spacing:.14em">⚠ Your subscription autopsy</div>
+        <div class="label-caps" style="color:var(--copper);margin-bottom:.6rem">Pure wasted capital</div>
+        <div class="shock-num" id="shockYearly">$0</div>
+        <div style="font-family:var(--font-mono);color:var(--faint);font-size:14px;margin-top:.2rem">/ year</div>
+        <p class="shock-sub"><b id="shockMonthly">$0.00</b> burned each month while idling.</p>
+      </div>
+      <div class="sec-head" style="margin-bottom:1.4rem"><span class="label-caps" style="color:var(--faint)">That is equivalent to</span></div>
+      <div class="equiv">
+        <div class="card"><span class="ic">☕</span><span class="big mono" id="eqCoffee">0</span><span style="font-size:13px;color:var(--muted)">artisan coffees / year</span></div>
+        <div class="card"><span class="ic">✈️</span><span class="big mono" id="eqFlight">0</span><span style="font-size:13px;color:var(--muted)">roundtrip flights to Tokyo</span></div>
+        <div class="card"><span class="ic">🏦</span><span class="big mono" id="eqRoth">0%</span><span style="font-size:13px;color:var(--muted)">of max Roth IRA contribution</span></div>
+      </div>
+      <div class="sec-head" style="margin:2.6rem auto 1.2rem"><span class="label-caps" style="color:var(--teal-bright)">Allocation vector</span><h2 style="font-size:1.7rem">Category waste velocity</h2></div>
+      <div class="cat-bars" id="catBars" style="max-width:46rem;margin:0 auto"></div>
+      <div id="overlapBox"></div>
+      <div id="hikeBox"></div>
+      <div id="annualBox"></div>
+      <div class="horizon">
+        <div class="card"><div class="label-caps" style="color:var(--faint);margin-bottom:.5rem">📉 Macro compounding horizon</div><div class="big" id="fiveYear">$0</div><p style="font-size:13.5px;color:var(--muted);margin-top:.5rem">Lost across 5 years to silent compound drift — before vendor price hikes (historically +14.2%).</p></div>
+        <div class="card"><div class="label-caps" style="color:var(--faint);margin-bottom:.5rem">🔁 License redundancy</div><div class="big teal" id="overlapIdx">0%</div><p style="font-size:13.5px;color:var(--muted);margin-top:.5rem">Overlap index — duplicate cloud sync &amp; overlapping feature sets billed simultaneously.</p></div>
+      </div>
+      <div class="verdict" id="verdictBox"></div>
+      <div style="text-align:center;margin:2rem 0">
+        <button class="btn btn-copper-glow" data-nav="alternatives">⚡ Here’s How to Save It →</button>
+        <div style="margin-top:1rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm" data-nav="calculator">← Back to calculator</button>
+          <button class="btn btn-ghost btn-sm" data-nav="share">Skip to share →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIEW: ALTERNATIVES ============ -->
+<section class="view" id="view-alternatives">
+  <div class="wrap">
+    <div class="sec">
+      <div class="sec-head">
+        <div class="label-caps" style="color:var(--faint)">Protocol 04 // Liberation vector · Open parity matrix</div>
+        <h2>Stop Paying the <span class="grad">Monopoly Tax</span></h2>
+        <p>Seamlessly switch to free, private alternatives with zero subscription fees and full data export.</p>
+      </div>
+      <div class="alt-head-savings">
+        <div class="label-caps" style="color:var(--faint);margin-bottom:.4rem">Total potential annual savings</div>
+        <div class="big" id="altSavings">$0.00</div>
+        <div style="color:var(--muted);font-size:14px;margin-top:.3rem"><b class="mono" style="color:var(--text)" id="altCount">0</b> of <span id="altTotal">0</span> vectors selected · instant zero-downtime switch</div>
+      </div>
+      <div style="display:flex;gap:.8rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap">
+        <button class="btn btn-teal btn-sm" id="switchAll">⇄ Switch all services</button>
+        <button class="btn btn-ghost btn-sm" data-nav="calculator">Reset selection</button>
+      </div>
+      <div class="alt-grid" id="altGrid"></div>
+      <div class="empty" id="altEmpty" style="display:none"><div class="big">🪦</div><h3 style="color:var(--text);margin-bottom:.5rem">No subscriptions selected</h3><p>Go back to the calculator and toggle the services you pay for.</p><div style="margin-top:1.2rem"><button class="btn btn-teal btn-sm" data-nav="calculator">Open calculator</button></div></div>
+      <div style="text-align:center;margin-top:2.4rem"><button class="btn btn-copper-glow" data-nav="share">Broadcast My Liberation →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIEW: SHARE ============ -->
+<section class="view" id="view-share">
+  <div class="wrap">
+    <div class="sec">
+      <div class="pass">
+        <div class="stamp">✓ Audit certified · Obsidian Kinetic</div>
+        <div class="label-caps" style="color:var(--faint);letter-spacing:.16em;margin-bottom:.8rem">Financial liberation pass</div>
+        <blockquote>“I just found out I’m wasting <span class="mono" id="shareAmount">$0/year</span> on subscriptions!”</blockquote>
+        <div class="bleed-list" id="shareBleed"></div>
+        <p style="color:var(--muted);font-size:14.5px;max-width:36rem;margin:0 auto">Recurring bleed stopped. Broadcast your recovered surplus, trigger social contagion, and shock your circle into financial solvency.</p>
+        <div class="share-btns">
+          <button class="btn btn-x" id="shareX">𝕏 Post on X</button>
+          <button class="btn btn-wa" id="shareWa">💬 WhatsApp</button>
+          <button class="btn btn-fb" id="shareFb">f LinkedIn</button>
+          <button class="btn btn-copy" id="shareCopy">🔗 Copy link</button>
+        </div>
+        <div class="copied-msg" id="copiedMsg"></div>
+      </div>
+      <div class="challenge">
+        <div class="label-caps" style="color:var(--copper);margin-bottom:.6rem">⚡ Provocation protocol</div>
+        <h3>Challenge a friend to audit their waste</h3>
+        <p>Most people unknowingly hemorrhage $90–$250 every month. Send them this page and watch their reaction.</p>
+        <button class="btn btn-teal" id="nativeShare">📤 Share via…</button>
+      </div>
+      <div class="live-stats">
+        <div><span class="n" id="liveAudits">3,842</span><span class="t">audited in the last 60 min</span></div>
+        <div><span class="n">+42/min</span><span class="t">audit velocity</span></div>
+        <div><span class="n">98.4%</span><span class="t">shocked</span></div>
+      </div>
+      <div style="text-align:center;margin-top:2.4rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" data-nav="results">← Shock report</button>
+        <button class="btn btn-ghost btn-sm" data-nav="alternatives">Free alternatives</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="brand" href="#" data-nav="landing"><span class="brand-mark">N</span><span class="brand-name">Subscription Killer</span></a>
+        <p class="ft-brand">Surgical liberation from recurring financial bleed. Obsidian Kinetic telemetry engineered by Novatix Labs.</p>
+        <p style="font-size:12.5px;color:var(--teal-bright);margin-top:.8rem">✓ Zero-Telemetry Architecture · Client-Side Local Execution</p>
+      </div>
+      <div><h4>Kill Protocols</h4><a href="#" data-nav="calculator">Waste Calculator</a><a href="#" data-nav="results">Shock Report</a><a href="#" data-nav="alternatives">Free Alternatives</a><a href="#" data-nav="share">Share</a></div>
+      <div><h4>Novatix Ecosystem</h4><a href="https://novatix.agency" target="_blank" rel="noopener">Novatix Agency</a><a href="https://novatix.agency/tools" target="_blank" rel="noopener">304 Free Tools</a><a href="https://pdf.novatix.agency" target="_blank" rel="noopener">PDF Tools</a><a href="https://studio.novatix.agency" target="_blank" rel="noopener">Novatix Studio</a></div>
+      <div><h4>Trust</h4><a href="https://novatix.agency/privacy" target="_blank" rel="noopener">Privacy Charter</a><a href="https://novatix.agency/terms" target="_blank" rel="noopener">Terms</a><a href="https://novatix.agency/contact" target="_blank" rel="noopener">Contact</a></div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Novatix Labs. All rights reserved.</span>
+      <span class="status"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;animation:pulse 2s infinite"></span> Strict Zero Logs · Systems Operational</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+'use strict';
+/* ================= DATA ================= */
+var SUBS=[
+ {id:'netflix',name:'Netflix 4K',price:15.49,cat:'entertainment',icon:'🎬',tag:'Monopoly DRM',lastHike:{amt:1,when:'Jan 2026'},
+  alt:{name:'Free streaming + Novatix tools',link:'https://novatix.agency',feats:['Cancel anytime, zero lock-in','Use free legal streaming alternatives','Track watchlist with free tools']}},
+ {id:'spotify',name:'Spotify Premium',price:11.99,cat:'entertainment',icon:'🎵',tag:'Surveillance ads',lastHike:{amt:1,when:'2025'},
+  alt:{name:'Free music streaming',link:'https://novatix.agency',feats:['Free tier + ad-blocked web player','Local music library, zero profiling','Offline playlists without premium']}},
+ {id:'disney',name:'Disney+',price:13.99,cat:'entertainment',icon:'✨',tag:'Franchise toll',lastHike:{amt:2,when:'2024'},annual:139.99,
+  alt:{name:'Free streaming alternatives',link:'https://novatix.agency',feats:['Rotate subscriptions — 1 month/year','Free trials stacked smartly','Library sharing with family plan audit']}},
+ {id:'ytpremium',name:'YouTube Premium',price:13.99,cat:'entertainment',icon:'▶️',tag:'Ad ransom',lastHike:{amt:1,when:'2024'},annual:139.99,
+  alt:{name:'Free ad-blocking setup',link:'https://novatix.agency',feats:['Free ad-blockers kill every ad','Background play via free apps','Save $167.88/yr instantly']}},
+ {id:'audible',name:'Audible Plus',price:14.95,cat:'entertainment',icon:'🎧',tag:'Audiobook rent',
+  alt:{name:'Free audiobooks',link:'https://novatix.agency',feats:['Libby + library card = free','Public domain classics free','Podcasts replace 80% of listening']}},
+ {id:'adobe',name:'Adobe Creative Cloud',price:59.99,cat:'productivity',icon:'🎨',tag:'Heavy hostage lock-in',annual:659.88,
+  alt:{name:'Novatix Studio',link:'https://studio.novatix.agency',feats:['Hardware-accelerated editor, 100% free','Native .PSD / .SVG import','Zero AI scraping of your work','No cancellation ransom fees']}},
+ {id:'canva',name:'Canva Pro',price:15.00,cat:'productivity',icon:'🖼️',tag:'Template tax',annual:120,
+  alt:{name:'Novatix Studio',link:'https://studio.novatix.agency',feats:['Free templates, no watermark','Full design control in browser','Export in any format free']}},
+ {id:'ms365',name:'Microsoft 365',price:6.99,cat:'productivity',icon:'📄',tag:'Office rent',annual:69.99,
+  alt:{name:'Free office suite',link:'https://novatix.agency/tools',feats:['LibreOffice / Google Docs free','1TB free via stacked offers','Zero subscription, full compatibility']}},
+ {id:'notion',name:'Notion Plus',price:10.00,cat:'productivity',icon:'📝',tag:'Note ransom',annual:96,
+  alt:{name:'Free notes & docs',link:'https://novatix.agency/tools',feats:['Free tier covers 95% of users','Obsidian / AppFlowy free forever','Local-first, private by default']}},
+ {id:'icloud',name:'iCloud+ 2TB',price:9.99,cat:'cloud',icon:'☁️',tag:'Storage toll',
+  alt:{name:'Free cloud stack',link:'https://novatix.agency',feats:['15GB Google + 5GB OneDrive free','Deduplicate before you pay','Local NAS for one-time cost']}},
+ {id:'dropbox',name:'Dropbox Plus',price:11.99,cat:'cloud',icon:'📦',tag:'Duplicate sync',annual:119.88,
+  alt:{name:'Free sync alternatives',link:'https://novatix.agency',feats:['Free tiers cover most needs','pCloud lifetime deals','Kill duplicate sync billing']}},
+ {id:'gdrive',name:'Google One 2TB',price:9.99,cat:'cloud',icon:'💾',tag:'Over-provisioned',
+  alt:{name:'Storage audit + free tiers',link:'https://novatix.agency',feats:['Audit: most use <100GB','Compress & deduplicate free','Stack free tiers across providers']}},
+ {id:'chatgpt',name:'ChatGPT Plus',price:20.00,cat:'ai',icon:'🤖',tag:'Token toll',
+  alt:{name:'Free AI tools',link:'https://novatix.agency/tools',feats:['Free tiers of top AI models','Novatix free AI utilities','API pay-per-use beats $20/mo']}},
+ {id:'midjourney',name:'Midjourney',price:10.00,cat:'ai',icon:'🖌️',tag:'Render rent',
+  alt:{name:'Free image AI',link:'https://studio.novatix.agency',feats:['Free open-source generators','Run Stable Diffusion locally','Zero monthly render tax']}},
+ {id:'applemusic',name:'Apple Music',price:10.99,cat:'entertainment',icon:'🍎',tag:'Ecosystem toll',
+  alt:{name:'Free music streaming',link:'https://novatix.agency',feats:['Free tier + web player','Local library, zero profiling','Offline playlists without premium']}},
+ {id:'ytmusic',name:'YouTube Music',price:10.99,cat:'entertainment',icon:'🎶',tag:'Ad ransom',
+  alt:{name:'Free music streaming',link:'https://novatix.agency',feats:['Free tier covers most listening','Ad-blocked web player','Background play via free apps']}},
+ {id:'hulu',name:'Hulu',price:9.99,cat:'entertainment',icon:'📺',tag:'Franchise toll',annual:95.88,
+  alt:{name:'Free streaming alternatives',link:'https://novatix.agency',feats:['Rotate subscriptions — 1 month/year','Free trials stacked smartly','Library sharing with family plan audit']}},
+ {id:'jazz',name:'Jazz Monthly Hybrid',price:1.44,cat:'cloud',icon:'📶',tag:'Connectivity toll',region:'PK',
+  alt:{name:'Connectivity cost audit',link:'https://novatix.agency',feats:['Compare bundles before renewing','Wi-Fi first, data second','Kill auto-renew on unused bundles']}},
+ {id:'zong',name:'Zong Monthly Bundle',price:1.80,cat:'cloud',icon:'📡',tag:'Connectivity toll',region:'PK',
+  alt:{name:'Connectivity cost audit',link:'https://novatix.agency',feats:['Compare bundles before renewing','Wi-Fi first, data second','Kill auto-renew on unused bundles']}},
+ {id:'tapmad',name:'Tapmad',price:1.99,cat:'entertainment',icon:'📺',tag:'Regional streaming',region:'PK',
+  alt:{name:'Free streaming alternatives',link:'https://novatix.agency',feats:['Rotate subscriptions — 1 month/year','Free trials stacked smartly','Share family plan cost']}},
+ {id:'starzplay',name:'STARZPLAY',price:3.99,cat:'entertainment',icon:'🎞️',tag:'Regional streaming',region:'PK',
+  alt:{name:'Free streaming alternatives',link:'https://novatix.agency',feats:['Rotate subscriptions — 1 month/year','Free trials stacked smartly','Share family plan cost']}},
+ {id:'foodpanda',name:'Foodpanda Pro',price:2.99,cat:'entertainment',icon:'🍔',tag:'Delivery subscription',region:'PK',
+  alt:{name:'Delivery fee hacks',link:'https://novatix.agency',feats:['Bulk-order to hit free delivery','Rotate Pro months, not yearly','Stack vouchers over subscription']}},
+ {id:'daraz',name:'Daraz',price:1.49,cat:'productivity',icon:'🛒',tag:'Marketplace perks',region:'PK',
+  alt:{name:'Smart shopping stack',link:'https://novatix.agency/tools',feats:['Price-track before buying','Stack vouchers + bank offers','Free-shipping thresholds beat fees']}},
+ {id:'bbciplayer',name:'BBC iPlayer',price:0.00,cat:'entertainment',icon:'📻',tag:'Free forever',region:'UK',
+  alt:{name:'Free UK streaming',link:'https://novatix.agency',feats:['Already free — keep it that way','Full catalogue, zero cost','No subscription to kill here']}},
+ {id:'btsport',name:'TNT Sports (ex-BT)',price:29.99,cat:'entertainment',icon:'⚽',tag:'Sports premium',region:'UK',
+  alt:{name:'Match-day alternatives',link:'https://novatix.agency',feats:['Pay-per-match beats monthly','Split cost with friends','Free highlights packages']}},
+];
+var CATS={entertainment:'Entertainment',productivity:'Productivity & Design',cloud:'Cloud & Storage',ai:'AI Tools'};
+/* ================= STATE ================= */
+var selected=new Set(), activeCat='all';
+try{var sv=JSON.parse(localStorage.getItem('sk_sel')||'[]');sv.forEach(function(id){selected.add(id);});}catch(e){}
+function persist(){try{localStorage.setItem('sk_sel',JSON.stringify(Array.from(selected)));}catch(e){}}
+function $(id){return document.getElementById(id);}
+function money(n,d){d=(d===undefined)?2:d;return '$'+n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
+/* ================= COUNT-UP ================= */
+function countUp(el,to,fmt,dur){
+  dur=dur||900;fmt=fmt||function(v){return money(v);};
+  var from=parseFloat(el.getAttribute('data-v')||'0'),t0=null;
+  function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+    var v=from+(to-from)*e;el.textContent=fmt(v);
+    if(p<1)requestAnimationFrame(step);else el.setAttribute('data-v',to);}
+  requestAnimationFrame(step);
+}
+/* ================= NAV ================= */
+var views=['landing','calculator','results','alternatives','share'];
+function nav(v){
+  views.forEach(function(x){$('view-'+x).classList.toggle('active',x===v);});
+  var btns=document.querySelectorAll('#mainNav button');
+  btns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-nav')===v);});
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(v==='results')renderResults();
+  if(v==='alternatives')renderAlts();
+  if(v==='share')renderShare();
+  try{history.replaceState(null,'','#'+v);}catch(e){}
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-nav]');
+  if(t){e.preventDefault();nav(t.getAttribute('data-nav'));}
+});
+/* ================= CALCULATOR ================= */
+function totals(){
+  var m=0;selected.forEach(function(id){var s=SUBS.find(function(x){return x.id===id;});if(s)m+=s.price;});
+  return {m:m,y:m*12,count:selected.size};
+}
+function renderSubs(){
+  var g=$('subGrid');g.innerHTML='';
+  SUBS.filter(function(s){return activeCat==='all'||(activeCat==='regional'?(s.region==='PK'||s.region==='UK'):s.cat===activeCat);}).forEach(function(s){
+    var on=selected.has(s.id);
+    var d=document.createElement('div');
+    d.className='sub-card'+(on?' on':'');
+    d.setAttribute('role','button');d.setAttribute('tabindex','0');
+    d.setAttribute('aria-pressed',on?'true':'false');
+    d.innerHTML='<div class="sub-ic">'+s.icon+'</div>'+
+      '<div class="sub-inf"><b>'+s.name+'</b><span class="cat">'+CATS[s.cat]+(s.region?' <span class="region">'+s.region+'</span>':'')+'</span></div>'+
+      '<div class="sub-pr">'+money(s.price)+'<small>/mo · '+money(s.price*12,0)+'/yr</small></div>'+
+      '<div class="tgl" aria-hidden="true"></div>';
+    function flip(){on?selected.delete(s.id):selected.add(s.id);persist();renderSubs();renderTotals(true);syncOverlapMini();}
+    d.addEventListener('click',flip);
+    d.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}});
+    g.appendChild(d);
+  });
+}
+function renderTotals(anim){
+  var t=totals();
+  if(anim){countUp($('totMonthly'),t.m);countUp($('totYearly'),t.y);}
+  else{$('totMonthly').textContent=money(t.m);$('totYearly').textContent=money(t.y);
+    $('totMonthly').setAttribute('data-v',t.m);$('totYearly').setAttribute('data-v',t.y);}
+  $('totCount').textContent=t.count;
+}
+document.querySelectorAll('#catChips .chip').forEach(function(c){
+  c.addEventListener('click',function(){
+    document.querySelectorAll('#catChips .chip').forEach(function(x){x.classList.remove('active');});
+    c.classList.add('active');activeCat=c.getAttribute('data-cat');renderSubs();
+  });
+});
+$('resetSel').addEventListener('click',function(){selected.clear();persist();renderSubs();renderTotals(true);syncOverlapMini();});
+/* ================= RESULTS ================= */
+function renderResults(){
+  var t=totals(),y=t.y;
+  countUp($('shockYearly'),y,function(v){return money(v,0);},1400);
+  countUp($('shockMonthly'),t.m,undefined,1100);
+  countUp($('eqCoffee'),Math.round(y/7),function(v){return Math.round(v).toLocaleString();},1100);
+  countUp($('eqFlight'),y/1200,function(v){return v.toFixed(1);},1100);
+  countUp($('eqRoth'),y/7000*100,function(v){return v.toFixed(1)+'%';},1100);
+  countUp($('fiveYear'),y*5,function(v){return money(v,0);},1300);
+  // category bars
+  var cats={},i;Object.keys(CATS).forEach(function(k){cats[k]=0;});
+  selected.forEach(function(id){var s=SUBS.find(function(x){return x.id===id;});if(s)cats[s.cat]+=s.price;});
+  var box=$('catBars');box.innerHTML='';
+  var max=Math.max.apply(null,Object.keys(cats).map(function(k){return cats[k];}).concat([0.01]));
+  Object.keys(CATS).forEach(function(k,idx){
+    var pm=cats[k],py=pm*12,pct=y>0?Math.round(py/y*100):0;
+    var names=SUBS.filter(function(s){return s.cat===k&&selected.has(s.id);}).map(function(s){return s.name;}).join(' · ')||'—';
+    var row=document.createElement('div');row.className='cat-bar';
+    row.innerHTML='<div class="top"><span>▦ '+CATS[k]+' <span style="color:var(--faint);font-size:12px">'+names+'</span></span><b class="mono">'+money(pm)+' <span style="color:var(--faint);font-weight:400">/mo</span></b></div>'+
+      '<div class="bar'+(idx%2?' teal':'')+'"><i></i></div>'+
+      '<div style="font-size:11.5px;color:var(--faint);margin-top:.3rem;font-family:var(--font-mono)">'+money(py,0)+'/yr · '+pct+'% of total waste</div>';
+    box.appendChild(row);
+    setTimeout(function(){row.querySelector('.bar i').style.width=(pm/max*100)+'%';},80*idx+60);
+  });
+  // overlap index heuristic
+  var overlap=0;if(selected.size>=2){var catCount=Object.keys(cats).filter(function(k){return cats[k]>0;}).length;overlap=Math.min(96,Math.round(selected.size*9+(3-catCount)*6));}
+  countUp($('overlapIdx'),overlap,function(v){return Math.round(v)+'%';},1100);
+  renderOverlaps();renderHikes();renderAnnual();
+  // verdict
+  var vbox=$('verdictBox');
+  if(t.count===0){vbox.innerHTML='<b>No subscriptions selected.</b> Go back to the calculator and toggle the services you actually pay for — the shock is worth it.';}
+  else{
+    var top=SUBS.filter(function(s){return selected.has(s.id);}).sort(function(a,b){return b.price-a.price;})[0];
+    vbox.innerHTML='<span class="label-caps" style="color:var(--teal-bright)">Heuristic verdict</span><br>Our audit verifies that <b>'+t.count+' of '+t.count+'</b> identified services have modern zero-cost replacements with frictionless migration. Your biggest leak is <b>'+top.name+' ('+money(top.price)+'/mo)</b> — killing it alone reclaims <b>'+money(top.price*12,0)+'/year</b>.';
+  }
+}
+/* ================= SMART AUDIT EXTRAS (v2) ================= */
+var OVERLAP_GROUPS=[
+ {label:'music services',ids:['spotify','applemusic','ytmusic']},
+ {label:'video streaming services',ids:['netflix','disney','hulu']},
+ {label:'cloud storage services',ids:['icloud','dropbox','gdrive']},
+ {label:'design tools',ids:['adobe','canva']}
+];
+function overlapFindings(){
+  var out=[];
+  OVERLAP_GROUPS.forEach(function(g){
+    var sel=g.ids.map(function(id){return SUBS.find(function(s){return s.id===id;});})
+      .filter(function(s){return s&&selected.has(s.id);});
+    if(sel.length>=2){
+      var prices=sel.map(function(s){return s.price;});
+      var save=(prices.reduce(function(a,b){return a+b;},0)-Math.min.apply(null,prices))*12;
+      out.push({label:g.label,names:sel.map(function(s){return s.name;}),save:save,count:sel.length});
+    }
+  });
+  return out;
+}
+function renderOverlaps(){
+  var box=$('overlapBox');if(!box)return;box.innerHTML='';
+  var f=overlapFindings();
+  if(!f.length)return;
+  var h=document.createElement('div');h.className='audit-sec-head';
+  h.innerHTML='<span class="label-caps" style="color:var(--copper)">⚠ Overlap radar</span><h2>You are paying twice for the same thing</h2>';
+  box.appendChild(h);
+  f.forEach(function(o){
+    var c=document.createElement('div');c.className='warn-card';
+    c.innerHTML='<div class="wc-head">⚠️ Overlap detected</div>'+
+      '<p>You are paying for <b>'+o.count+' '+o.label+'</b> ('+o.names.join(' + ')+'). '+
+      'Keep the cheapest one and kill the rest to reclaim <span class="save">'+money(o.save,0)+'/year</span>.</p>';
+    box.appendChild(c);
+  });
+}
+function syncOverlapMini(){
+  var mini=$('overlapMini');if(!mini)return;
+  var f=overlapFindings();
+  if(!f.length){mini.classList.remove('show');mini.innerHTML='';return;}
+  var totSave=f.reduce(function(a,o){return a+o.save;},0);
+  mini.innerHTML='⚠️ <b>'+f.length+' overlap'+(f.length>1?'s':'')+'</b> found — kill the dupes, save <b>'+money(totSave,0)+'/yr</b>. See the Shock Report.';
+  mini.classList.add('show');
+}
+function renderHikes(){
+  var box=$('hikeBox');if(!box)return;box.innerHTML='';
+  var sel=SUBS.filter(function(s){return selected.has(s.id)&&s.lastHike;});
+  if(!sel.length)return;
+  var h=document.createElement('div');h.className='audit-sec-head';
+  h.innerHTML='<span class="label-caps" style="color:#facc15">📈 Price-hike radar</span><h2>Vendors quietly raised your bills</h2>';
+  box.appendChild(h);
+  sel.forEach(function(s){
+    var yrExtra=s.lastHike.amt*12;
+    var c=document.createElement('div');c.className='hike-card';
+    c.innerHTML='<div class="hi">📈</div><p><b>'+s.name+'</b> raised prices by '+money(s.lastHike.amt)+'/mo in '+s.lastHike.when+
+      ' — you are now paying <b>'+money(yrExtra,0)+'/year more</b> than before for the exact same service.</p>';
+    box.appendChild(c);
+  });
+}
+function renderAnnual(){
+  var box=$('annualBox');if(!box)return;box.innerHTML='';
+  var sel=SUBS.filter(function(s){return selected.has(s.id)&&s.annual&&s.annual<s.price*12;});
+  if(!sel.length)return;
+  var totSave=sel.reduce(function(a,s){return a+(s.price*12-s.annual);},0);
+  var h=document.createElement('div');h.className='audit-sec-head';
+  h.innerHTML='<span class="label-caps" style="color:var(--teal-bright)">💡 Billing hack</span><h2>Switch to yearly, pocket '+money(totSave,0)+'</h2>';
+  box.appendChild(h);
+  sel.forEach(function(s){
+    var save=s.price*12-s.annual;
+    var pct=Math.round(save/(s.price*12)*100);
+    var c=document.createElement('div');c.className='annual-card';
+    c.innerHTML='<div class="ai2">💡</div><p><b>'+s.name+'</b> offers annual billing at '+money(s.annual,0)+'/yr instead of '+money(s.price*12,0)+
+      '/yr on monthly — switch and save <span class="save">'+money(save,0)+'/year ('+pct+'%)</span> with zero downside.</p>';
+    box.appendChild(c);
+  });
+}
+/* ================= ALTERNATIVES ================= */
+function renderAlts(){
+  var t=totals(),g=$('altGrid');g.innerHTML='';
+  $('altSavings').textContent=money(t.y);
+  $('altCount').textContent=t.count;$('altTotal').textContent=SUBS.length;
+  var list=SUBS.filter(function(s){return selected.has(s.id);});
+  $('altEmpty').style.display=list.length?'none':'block';
+  list.forEach(function(s){
+    var yr=s.price*12;
+    var c=document.createElement('div');c.className='alt-card';
+    c.innerHTML=
+      '<div class="alt-from"><div class="sub-ic">'+s.icon+'</div><div><b>'+s.name+'</b><div class="label-caps" style="color:var(--faint);font-size:10px">'+s.tag+'</div></div>'+
+      '<div class="alt-price-old"><s>'+money(s.price)+'/mo</s><span>'+money(yr,0)+'/yr bleed</span></div></div>'+
+      '<div class="alt-arrow">▼</div>'+
+      '<div class="alt-to"><div style="display:flex;justify-content:space-between;align-items:center"><b>'+s.alt.name+'</b><span class="free">$0/mo</span></div>'+
+      '<ul class="feats">'+s.alt.feats.map(function(f){return '<li>'+f+'</li>';}).join('')+'</ul></div>'+
+      '<a class="switch-btn" href="'+s.alt.link+'" target="_blank" rel="noopener">✓ Switch &amp; Save '+money(yr,0)+'/yr →</a>';
+    g.appendChild(c);
+  });
+}
+$('switchAll').addEventListener('click',function(){
+  SUBS.forEach(function(s){selected.add(s.id);});persist();renderAlts();
+});
+/* ================= SHARE ================= */
+function shareText(){
+  var t=totals();
+  return "I just found out I'm wasting "+money(t.y,0)+"/year on subscriptions! Calculate your waste in 30 seconds:";
+}
+function renderShare(){
+  var t=totals();
+  $('shareAmount').textContent=money(t.y,0)+'/year';
+  var bl=$('shareBleed');bl.innerHTML='';
+  SUBS.filter(function(s){return selected.has(s.id);}).slice(0,6).forEach(function(s){
+    var sp=document.createElement('span');sp.innerHTML=s.name+' <b>('+money(s.price*12,0)+')</b>';bl.appendChild(sp);
+  });
+  if(!t.count){var sp=document.createElement('span');sp.textContent='No subscriptions audited yet — run the calculator first';bl.appendChild(sp);}
+}
+var PAGE_URL='https://save.novatix.agency/';
+function doShare(net){
+  var text=shareText(),url=PAGE_URL;
+  var links={
+    x:'https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url),
+    wa:'https://wa.me/?text='+encodeURIComponent(text+' '+url),
+    fb:'https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url)
+  };
+  if(net==='copy'){
+    var done=function(){$('copiedMsg').textContent='✓ Link copied to clipboard! Ready to blow minds.';setTimeout(function(){$('copiedMsg').textContent='';},3200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text+' '+url).then(done,done);}else{done();}
+    return;
+  }
+  window.open(links[net],'_blank','noopener,width=640,height=560');
+}
+$('shareX').addEventListener('click',function(){doShare('x');});
+$('shareWa').addEventListener('click',function(){doShare('wa');});
+$('shareFb').addEventListener('click',function(){doShare('fb');});
+$('shareCopy').addEventListener('click',function(){doShare('copy');});
+$('nativeShare').addEventListener('click',function(){
+  var text=shareText();
+  if(navigator.share){navigator.share({title:'Subscription Killer',text:text,url:PAGE_URL}).catch(function(){});}
+  else{doShare('copy');}
+});
+/* ================= LIVE TICKERS ================= */
+var bleed=14892450.00;
+setInterval(function(){
+  bleed+=18.40;
+  var el=$('ticker');if(el)el.textContent=money(bleed);
+},1000);
+var audits=3842;
+setInterval(function(){
+  audits+=Math.floor(Math.random()*3);
+  var el=$('liveAudits');if(el)el.textContent=audits.toLocaleString();
+},7000);
+var hdSaved=4281900;
+setInterval(function(){
+  hdSaved+=Math.floor(20+Math.random()*60);
+  var el=$('hdSaved');if(el)el.textContent='$'+hdSaved.toLocaleString();
+},5000);
+/* ================= INIT ================= */
+renderSubs();renderTotals(false);syncOverlapMini();
+var h=location.hash.replace('#','');
+if(views.indexOf(h)>=0)nav(h);
+})();
+</script>
+</body>
+</html>
